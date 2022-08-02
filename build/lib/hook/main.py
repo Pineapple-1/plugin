@@ -1,4 +1,5 @@
 import argparse
+import os 
 
 
 def print_arguments(arguments):
@@ -8,10 +9,26 @@ def print_arguments(arguments):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("filenames", nargs="*")
+    parser.add_argument("path")
     args = parser.parse_args()
+    MIGRATION_DIR = args.path
+    filenames = os.listdir(MIGRATION_DIR)
+    filenames.remove('__init__.py')
+    checklist = []
 
-    print_arguments(args.filenames)
+    for filename in filenames:
+        arr = filename.split("_")
+        checklist.append(arr[0])
+    
+
+    if len(set(checklist)) == len(checklist):
+        pass
+    else:
+        raise ValueError("Duplicates In Migrations .")
+        
+
+
+
 
 
 if __name__ == "__main__":
