@@ -24,7 +24,7 @@ def main():
     if len(set(checklist)) == len(checklist):
         pass
     else:
-        raise Exception("Duplicates In Migrations .")
+        raise ValueError("Duplicates In Migrations .")
         
 
 
