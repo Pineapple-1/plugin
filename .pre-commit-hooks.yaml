@@ -1,0 +1,5 @@
+- id: best-hook-id
+  name: best-hook-name
+  entry: Thebesthookever
+  language: python
+
