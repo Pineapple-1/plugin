@@ -1,13 +1,13 @@
 import argparse
 import os
-import logging
-from typing import Optional, Sequence
+# import logging
+# from typing import Optional, Sequence
 
 
-logger = logging.getLogger()
+# logger = logging.getLogger()
 
-def main(argv: Sequence[str] = None):
-    logger.info(argv)
+def main():
+    # logger.info(argv)
     parser = argparse.ArgumentParser()
     parser.add_argument("-p","--path",dest='migration_dir',action="store")
     args = parser.parse_args()
