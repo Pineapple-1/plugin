@@ -1,21 +1,19 @@
 import argparse
-import os
-import logging
-from typing import Sequence
 
 
-logger = logging.getLogger()
-
-def main(argv: Sequence[str] = None):
-    logger.info(argv)
+def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-p","--path",dest='migration_dir',action="store", nargs='*')
+    parser.add_argument("-p","--path",dest='migration_dirs',action="store", nargs='*')
     args = parser.parse_args()
-    
-    MIGRATION_DIR = args.migration_dir[0]
-    filenames = os.listdir(MIGRATION_DIR)
-    filenames.remove('__init__.py')
     checklist = []
+    filenames = []
+
+    MIGRATION_DIR = filter(lambda dir: "migrations/" in dir, args.migration_dirs )
+    for file in MIGRATION_DIR:
+        arr = file.split("/")
+        filenames.append(arr[-1])
+
+    
     for filename in filenames:
         arr = filename.split("_")
         checklist.append(arr[0])
