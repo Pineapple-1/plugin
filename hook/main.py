@@ -1,18 +1,18 @@
 import argparse
 import os
-# import logging
-# from typing import Optional, Sequence
+import logging
+from typing import Sequence
 
 
-# logger = logging.getLogger()
+logger = logging.getLogger()
 
-def main():
-    # logger.info(argv)
+def main(argv: Sequence[str] = None):
+    logger.info(argv)
     parser = argparse.ArgumentParser()
-    parser.add_argument("-p","--path",dest='migration_dir',action="store")
+    parser.add_argument("-p","--path",dest='migration_dir',action="store", nargs='*')
     args = parser.parse_args()
     
-    MIGRATION_DIR = args.migration_dir
+    MIGRATION_DIR = args.migration_dir[0]
     filenames = os.listdir(MIGRATION_DIR)
     filenames.remove('__init__.py')
     checklist = []
