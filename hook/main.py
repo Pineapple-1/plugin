@@ -1,12 +1,17 @@
 import argparse
 import os
+import logging
+from typing import Optional, Sequence
 
 
+logger = logging.getLogger()
 
-def main():
+def main(argv: Optional(Sequence[str])):
+    logger.info(argv)
     parser = argparse.ArgumentParser()
     parser.add_argument("-p","--path",dest='migration_dir',action="store")
     args = parser.parse_args()
+    
     MIGRATION_DIR = args.migration_dir
     filenames = os.listdir(MIGRATION_DIR)
     filenames.remove('__init__.py')
