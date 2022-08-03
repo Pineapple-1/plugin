@@ -3,7 +3,7 @@ import argparse
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-p","--path",dest='migration_dirs',action="store", nargs='*')
+    parser.add_argument(dest='migration_dirs',action="store", nargs='*')
     args = parser.parse_args()
     checklist = []
     filenames = []
@@ -13,7 +13,7 @@ def main():
         arr = file.split("/")
         filenames.append(arr[-1])
 
-    
+
     for filename in filenames:
         arr = filename.split("_")
         checklist.append(arr[0])
