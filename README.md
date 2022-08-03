@@ -1,0 +1,1 @@
+# Pre-commit hook for checking django migration files.
