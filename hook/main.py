@@ -6,7 +6,7 @@ from typing import Optional, Sequence
 
 logger = logging.getLogger()
 
-def main(argv: Optional(Sequence[str])):
+def main(argv: Sequence[str] = None):
     logger.info(argv)
     parser = argparse.ArgumentParser()
     parser.add_argument("-p","--path",dest='migration_dir',action="store")
